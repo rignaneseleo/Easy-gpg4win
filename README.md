@@ -67,7 +67,7 @@ You will use here only the public key of recipient
 
             gpg -o [file_output_path] -r [recipient_key_name] -e [file_input_path]
                 
-## Decriptare:
+## Decrypt
 You will use this only to decrypt files crypted with your public key. Your secret key is automatically selected (you don't need to write it also if you have more than one of them).
 
             gpg -o [file_output_path] --batch --passphrase PASSPHRASE -d [file_input_path]
