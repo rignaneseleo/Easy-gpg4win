@@ -9,19 +9,20 @@ PRIVATE KEY = Key that you MUST NOT share with anyone. It allows you to decrypt 
 ## The logic
 Everything crypted with the public key is decryptable ONLY with his corrisponded private key AND VICE VERSA.
 
-When you want to send crypted data you need to crypt your file with the recipient public key and the recipient has to decrypt the data with his private key.
+When you want to send crypted data you need to crypt your file with the recipient's public key.
+The recipient can decrypt the data with his private key.
 
 ## Create your own keys
-You have first of all generate your public and private key. 
+You have first of all generate your public and private keys. 
 Use the command:
 
             gpg --gen-key
             
-You have to insert the Key Name [key_name] (without spaces is better), Email and Passphrase (it's a sort of password that you need to insert everytime you use the private key).
+You have to insert (without spaces is better) the name of your key [key_name], your email and a passphrase (it's a sort of password that you need to insert everytime you use the private key).
 
 ## Show your keys
       
-If you created correctly your keys before, they must be shown here.
+If you created correctly your keys before, they should be shown here.
 You can see the public keys stored in your pc with:
             
             gpg --list-keys
