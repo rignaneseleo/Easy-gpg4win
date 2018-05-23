@@ -36,14 +36,14 @@ You can see the private keys stored in your pc with:
 As I said before, you need to have the public key of your recipient if you want to send him cryptated files.
 Ask him the file of the key (we'll see how to export the key later) and import it in your pc with:
 
-            gpg --import [file]      
+            gpg --import [key_file_path]      
             
                 
 ## Export your public key as a file
                                 
 With the following command, you can create a file contaning your public key to share with everyone is going to send you crypted data:
 
-            gpg -o [output_path] --export [key_name]
+            gpg -o [file_output_path] --export [key_name]
 
 To delete a public key in your pc, you can use:
 
@@ -54,7 +54,7 @@ To delete a public key in your pc, you can use:
 With the following command, you can create a file contaning both your private and your public key to put somewhere safe.
 Your passphrase is needed. DO NOT SHARE THIS FILE WITH ANYONE!
 
-            gpg -o [output_path] --export-secret-keys [key_name]
+            gpg -o [file_output_path] --export-secret-keys [key_name]
           
 You should use his file as backup of your private key. You can restore both private and public key with the same import command I wrote before (that command imports only public key if the file contains only a public key and a private and public keys if it has both of them)
 
