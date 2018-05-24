@@ -81,3 +81,63 @@ You will use here only the public key of recipient
 You will use this only to decrypt files crypted with your public key. Your secret key is automatically selected (you don't need to write it also if you have more than one of them). You have to manually write the secret key passphrase. 
 
             gpg -o [file_output_path] -d [file_input_path]
+	   
+## gpg-agent.conf
+gpg-agent.conf is the file where the settings of the cache are stored.
+
+### Path
+It is created in your homedir. You can read your homedir with:
+
+	gpgconf --list-dirs	
+
+you can edit it and write inside:
+
+	verbose
+	allow-preset-passphrase
+	
+Everytime the gpg-agent.conf is modificated, you have to reload the agent.
+
+### Start the agent
+You can use
+
+	gpg-agent --daemon --verbose --allow-preset-passphrase
+	
+or
+
+	gpg-connect-agent /bye
+	
+In the first case it reports you all the activities it does.
+
+### Turn off the agent
+To turn off any agent:
+	
+	gpgconf --kill gpg-agent
+
+## Save a passphrase in cache
+Everytime you decode qith your private key, the passphrase is required. If you don't want to type it manually everytime, you can store it in the agent's cache.
+
+	Kill other agents:
+
+		gpgconf --kill gpg-agent
+
+	Start the agent:
+
+		gpg-connect-agent /bye
+
+	Save the passphrase
+
+		gpg-preset-passphrase --passphrase [passphrase] --preset [private_keygrip]
+	
+OR
+
+	Kill other agents:
+
+		gpgconf --kill gpg-agent
+		
+	Start the agent with a presetted passphrase:
+		
+		gpg-connect-agent "preset_passphrase [private_keygrip] -1 [passphrase_in-HEX]" /bye
+
+	(you can use this tool to convert the passphrase in HEX: http://string-functions.com/string-hex.aspx)
+	
+IMPORTANT: _the passphrase MUST be formated only by letters and numbers (without spaces), otherwise you'll have problems saving it_
