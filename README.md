@@ -25,11 +25,11 @@ You have to insert (without spaces is better) the name of your key [key_name], y
 If you created correctly your keys before, they should be shown here.
 You can see the public keys stored in your pc with:
             
-            gpg --list-keys
+	gpg --list-keys
                 
 You can see the private keys stored in your pc with:
             
-            gpg --list-secret-keys
+	gpg --list-secret-keys
                
 ### Show your keygrips
 
@@ -39,48 +39,53 @@ You can see the keygrips codes of all the public and private keys stored in your
 	
 You can see the keygrip and fingerprint code of a specific key stored in your pc with:
 
-            gpg --fingerprint --fingerprint --with-keygrip [key_name]
+        gpg --fingerprint --fingerprint --with-keygrip [key_name]
+
+You can check a keygrip with:
+
+	gpg-connect-agent
+	> havekey [keygrip]
 
 ### Import the recipient's public key
                 
 As I said before, you need to have the public key of your recipient if you want to send him cryptated files.
 Ask him the file of the key (we'll see how to export the key later) and import it in your pc with:
 
-            gpg --import [key_file_path]      
+	gpg --import [key_file_path]      
             
                 
 ### Export your public key as a file
                                 
 With the following command, you can create a file contaning your public key to share with everyone is going to send you crypted data:
 
-            gpg -o [file_output_path] --export [key_name]
+	gpg -o [file_output_path] --export [key_name]
 
 To delete a public key in your pc, you can use:
 
-            gpg --delete-key [key_name] 
+	gpg --delete-key [key_name] 
                 
 ### Export your private and public keys as a file
 
 With the following command, you can create a file contaning both your private and your public key to put somewhere safe.
 Your passphrase is needed. DO NOT SHARE THIS FILE WITH ANYONE!
 
-            gpg -o [file_output_path] --export-secret-keys [key_name]
+	gpg -o [file_output_path] --export-secret-keys [key_name]
           
 You should use his file as backup of your private key. You can restore both private and public key with the same import command I wrote before (that command imports only public key if the file contains only a public key and a private and public keys if it has both of them)
 
 To delete a public key in your pc, you can use:
 
-            gpg --delete-secret-key [key_name] 
+	gpg --delete-secret-key [key_name] 
                                
 ## Crypt
 You will use here only the public key of recipient
 
-            gpg -o [file_output_path] -r [recipient_key_name] -e [file_input_path]
+	gpg -o [file_output_path] -r [recipient_key_name] -e [file_input_path]
                 
 ## Decrypt
 You will use this only to decrypt files crypted with your public key. Your secret key is automatically selected (you don't need to write it also if you have more than one of them). You have to manually write the secret key passphrase. 
 
-            gpg -o [file_output_path] -d [file_input_path]
+	gpg -o [file_output_path] -d [file_input_path]
 	   
 ## gpg-agent.conf
 gpg-agent.conf is the file where the settings of the cache are stored.
@@ -114,7 +119,7 @@ To turn off any agent:
 	gpgconf --kill gpg-agent
 
 ## Save a passphrase in cache
-Everytime you decode qith your private key, the passphrase is required. If you don't want to type it manually everytime, you can store it in the agent's cache.
+Everytime you decode qith your private key, the passphrase is required. If you don't want to type it manually everytime, you can store it in the agent's cache. You need to configure your gpg-agent.conf before (read above).
 
 	Kill other agents:
 
