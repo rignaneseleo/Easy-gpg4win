@@ -1,18 +1,18 @@
 # Easy-gpg4win
 Easy explanation of basic use of gpg4win and GNUpg: https://www.gpg4win.org/ and https://gnupg.org/
 
-## The dictionary
+### The dictionary
 PUBLIC KEY = Key that you have to share with everyone is going to send you data.
 
 PRIVATE KEY = Key that you MUST NOT share with anyone. It allows you to decrypt what is crypted with your public key.
 
-## The logic
+### The logic
 Everything crypted with the public key is decryptable ONLY with his corrisponded private key AND VICE VERSA.
 
 When you want to send crypted data you need to crypt your file with the recipient's public key.
 The recipient can decrypt the data with his private key.
 
-## Create your own keys
+### Create your own keys
 You have first of all generate your public and private keys. 
 Use the command:
 
@@ -20,7 +20,7 @@ Use the command:
             
 You have to insert (without spaces is better) the name of your key [key_name], your email and a passphrase (it's a sort of password that you need to insert everytime you use the private key).
 
-## Show your keys
+### Show your keys
       
 If you created correctly your keys before, they should be shown here.
 You can see the public keys stored in your pc with:
@@ -31,7 +31,7 @@ You can see the private keys stored in your pc with:
             
             gpg --list-secret-keys
                
-## Show your keygrips
+### Show your keygrips
 
 You can see the keygrips codes of all the public and private keys stored in your pc with:
 
@@ -41,7 +41,7 @@ You can see the keygrip and fingerprint code of a specific key stored in your pc
 
             gpg --fingerprint --fingerprint --with-keygrip [key_name]
 
-## Import the recipient's public key
+### Import the recipient's public key
                 
 As I said before, you need to have the public key of your recipient if you want to send him cryptated files.
 Ask him the file of the key (we'll see how to export the key later) and import it in your pc with:
@@ -49,7 +49,7 @@ Ask him the file of the key (we'll see how to export the key later) and import i
             gpg --import [key_file_path]      
             
                 
-## Export your public key as a file
+### Export your public key as a file
                                 
 With the following command, you can create a file contaning your public key to share with everyone is going to send you crypted data:
 
@@ -59,7 +59,7 @@ To delete a public key in your pc, you can use:
 
             gpg --delete-key [key_name] 
                 
-## Export your private and public keys as a file
+### Export your private and public keys as a file
 
 With the following command, you can create a file contaning both your private and your public key to put somewhere safe.
 Your passphrase is needed. DO NOT SHARE THIS FILE WITH ANYONE!
