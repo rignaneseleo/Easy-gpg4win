@@ -30,9 +30,18 @@ You can see the public keys stored in your pc with:
 You can see the private keys stored in your pc with:
             
             gpg --list-secret-keys
-                
+               
+## Show your keygrips
 
-## Import the recipient public key
+You can see the keygrips codes of all the public and private keys stored in your pc with:
+
+	gpg --with-keygrip --list-secret-keys
+	
+You can see the keygrip and fingerprint code of a specific key stored in your pc with:
+
+            gpg --fingerprint --fingerprint --with-keygrip [key_name]
+
+## Import the recipient's public key
                 
 As I said before, you need to have the public key of your recipient if you want to send him cryptated files.
 Ask him the file of the key (we'll see how to export the key later) and import it in your pc with:
@@ -69,6 +78,6 @@ You will use here only the public key of recipient
             gpg -o [file_output_path] -r [recipient_key_name] -e [file_input_path]
                 
 ## Decrypt
-You will use this only to decrypt files crypted with your public key. Your secret key is automatically selected (you don't need to write it also if you have more than one of them).
+You will use this only to decrypt files crypted with your public key. Your secret key is automatically selected (you don't need to write it also if you have more than one of them). You have to manually write the secret key passphrase. 
 
-            gpg -o [file_output_path] --batch --passphrase PASSPHRASE -d [file_input_path]
+            gpg -o [file_output_path] -d [file_input_path]
