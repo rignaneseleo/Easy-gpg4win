@@ -16,7 +16,7 @@ The recipient can decrypt the data with his private key.
 You have first of all generate your public and private keys. 
 Use the command:
 
-            gpg --gen-key
+	gpg --gen-key
             
 You have to insert (without spaces is better) the name of your key [key_name], your email and a passphrase (it's a sort of password that you need to insert everytime you use the private key).
 
@@ -39,7 +39,7 @@ You can see the keygrips codes of all the public and private keys stored in your
 	
 You can see the keygrip and fingerprint code of a specific key stored in your pc with:
 
-        gpg --fingerprint --fingerprint --with-keygrip [key_name]
+	gpg --fingerprint --fingerprint --with-keygrip [key_name]
 
 You can check a keygrip with:
 
