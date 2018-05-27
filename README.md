@@ -145,4 +145,4 @@ OR
 
 	(you can use this tool to convert the passphrase in HEX: http://string-functions.com/string-hex.aspx)
 	
-IMPORTANT: _the passphrase MUST be formated only by letters and numbers (without spaces), otherwise you'll have problems saving it_
+IMPORTANT: _the passphrase MUST be composed only by letters and numbers (without spaces), otherwise you'll have problems_
